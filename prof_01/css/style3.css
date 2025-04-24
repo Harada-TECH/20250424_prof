@@ -1,0 +1,204 @@
+@charset "UTF-8"; /* 文字コードの指定 */
+
+/* 全体の初期設定 */
+* {
+  box-sizing: border-box; /* パディングやボーダーを含めてサイズを計算 */
+}
+
+body {
+  /*** 任意の色を設定 ***/
+  background-color: #f9f9f9; /* 背景色 */
+
+  color: #333;               /* 文字色を濃いグレーに */
+  margin: 0;                 /* デフォルトの余白をリセット */
+  padding: 0;                /* デフォルトのパディングをリセット */
+}
+
+.container {
+  /*** 任意の幅を設定 ***/
+  max-width: 960px;     /* コンテンツの最大幅を制限 */
+
+  margin: 40px auto;    /* 上下40px、左右中央寄せ */
+  padding: 0 20px;      /* 左右の余白を確保 */
+}
+
+/* ヘッダー部分（"My Profile" 表示） */
+.simple-header {
+  background-color: #87ceeb; /* 青系の背景色 */
+  padding: 20px;             /* 内側余白 */
+  text-align: center;        /* 中央揃え */
+  color: white;              /* 白文字 */
+  border-radius: 10px;       /* 角丸 */
+}
+
+/* プロフィールヘッダー（名前と画像） */
+.profile-header {
+  display: flex;             /* 横並びにする */
+  align-items: center;       /* 垂直中央揃え */
+  background-color: #87ceeb; /* 背景色 */
+  padding: 20px;             /* 内側余白 */
+  border-radius: 10px;       /* 角丸 */
+  color: white;              /* 白文字 */
+}
+
+/* 基本情報セクション（左右並び） */
+#profile {
+  display: flex;                 /* 横並び */
+  align-items: center;           /* 垂直中央揃え */
+  justify-content: space-between; /* 両端に配置 */
+  gap: 2rem;                     /* 間隔 */
+  flex-wrap: wrap;              /* レスポンシブ対応で折り返し可 */
+}
+
+.info-left {
+  flex: 1;                      /* 左側の幅 */
+}
+
+.info-left ul {
+  margin-left: 40px;           /* 左に余白 */
+  padding-left: 1em;           /* 箇条書きのインデント */
+}
+
+.info-right {
+  flex: 1;                      /* 右側の幅 */
+  text-align: center;          /* 中央揃え */
+}
+
+.info-right .profile-img {
+  width: 150px;                /* プロフ画像サイズ */
+  height: 150px;
+  border-radius: 50%;          /* 丸くする */
+  object-fit: cover;           /* 枠にぴったり合わせる */
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-img {
+  max-width: 150px;            /* 最大幅150px */
+  border-radius: 50%;          /* 丸くする */
+  object-fit: cover;           /* 枠に合わせてトリミング */
+  border: 3px solid white;     /* 白枠線 */
+}
+
+.profile-name {
+  font-weight: bold;           /* 太字 */
+  font-size: 1.2rem;           /* やや大きめ */
+  margin: 0;
+}
+
+/* セクション共通 */
+section {
+  background: white;           /* 白背景 */
+  border: 1px solid #ddd;      /* 薄い境界線 */
+  border-radius: 8px;          /* 角を丸く */
+  padding: 15px;               /* 内側余白 */
+  margin-top: 40px;            /* 上の余白 */
+}
+
+h2 {
+  color: #ffa07a;              /* サーモンピンク系の見出し色 */
+  margin-top: 0;               /* 上の余白をリセット */
+}
+
+/* 好きなもの・自分についてカード表示 */
+.card-container {
+  display: flex;               /* 横並びにする */
+  flex-wrap: wrap;             /* 折り返し可能に */
+  gap: 20px;                   /* カード間の間隔 */
+}
+
+.card {
+  flex: 1 1 250px;             /* 最小250pxで伸縮 */
+  background-color: #fefefe;   /* 白に近い背景 */
+  border: 1px solid #ddd;      /* 枠線 */
+  border-radius: 8px;          /* 角丸 */
+  padding: 10px;               /* 内側余白 */
+  text-align: center;          /* 中央揃え */
+}
+
+.card-img {
+  width: 100%;                 /* 幅いっぱいに */
+  /*** 任意の高さを設定 ***/
+  height: 150px;               /* 固定高さ */
+
+  object-fit: cover;           /* 枠に合わせて切り取り */
+  border-radius: 6px;          /* 少し角を丸く */
+  margin-bottom: 10px;
+}
+
+/* 好きな言葉：引用スタイル */
+.quote-text {
+  font-size: 1.2em;            /* 少し大きな文字 */
+  font-style: italic;          /* 斜体で引用っぽく */
+  text-align: center;          /* 中央揃え */
+  padding: 10px;
+  margin-left: 40px;           /* 左に余白 */
+  border-left: 5px solid #ffa07a; /* 引用線 */
+  position: relative;
+}
+
+/* 引用符（開始・終了） */
+.quote-text::before,
+.quote-text::after {
+  content: '“';                /* 開始引用符 */
+  font-size: 2em;
+  color: #ffa07a;
+  font-family: serif;
+}
+
+.quote-text::after {
+  content: '”';                /* 終了引用符 */
+}
+
+/* マップのレイアウト */
+.map-container {
+  display: flex;               /* 横並び */
+  flex-direction: row;         /* 横方向に並べる */
+  gap: 20px;                   /* 地図間の余白 */
+  flex-wrap: wrap;             /* 折り返し可能 */
+}
+
+.map-block {
+  flex: 1 1 400px;             /* 最小400pxで自動調整 */
+}
+
+/* 動画セクション */
+.video-container {
+  margin-top: 20px;            /* 上に余白 */
+  border: 1px solid #ddd;      /* 枠線 */
+  border-radius: 8px;          /* 角丸 */
+  overflow: hidden;            /* iframeのはみ出し防止 */
+}
+
+/* カードにホバーした時のアニメーション */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 好きな言葉の一文字ずつフェードイン */
+.quote-text span {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quote-text .char {
+  display: inline-block;
+  opacity: 0; /* 初期状態で非表示 */
+}
